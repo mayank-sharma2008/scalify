@@ -3,6 +3,7 @@ import Hero from "@/components/sections/Hero";
 import MarqueeBanner from "@/components/sections/Marquee";
 import Process from "@/components/sections/Process";
 import WhyScalify from "@/components/sections/WhyScalify";
+import Work from "@/components/sections/Work";
 import Portfolio from "@/components/sections/Portfolio";
 import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
@@ -16,6 +17,7 @@ export default function Home() {
       <MarqueeBanner />
       <Process />
       <WhyScalify />
+      <Work />
       <Portfolio />
       <Pricing />
       <FAQ />
