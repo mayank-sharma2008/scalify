@@ -23,8 +23,18 @@ function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
 }
 
 const testimonials = [
-  { quote: "Scalify delivers startup websites that look twice the price.", name: "Founder, WriteAI", role: "AI SaaS Startup", color: "#7C3AED" },
-  { quote: "Fast. Clean. No agency headaches.", name: "Business Owner", role: "Furniture Store", color: "#F97316" },
+  {
+    quote: "Clean design, fast delivery. Exactly what my startup needed.",
+    name: "Early Client",
+    role: "Startup Founder, Delhi",
+    color: "#7C3AED"
+  },
+  {
+    quote: "Got my furniture store site in under a week. No back and forth.",
+    name: "Business Owner",
+    role: "Furniture Store, India",
+    color: "#F97316"
+  },
 ];
 
 const features = ["Landing Pages","Business Websites","Portfolio Sites","Startup Websites","Copywriting","Animations","Next.js","SEO Setup","Responsive Design","Contact Forms","Performance","Vercel Deployment","Brand Websites","UI Design","Maintenance"];

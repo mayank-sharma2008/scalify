@@ -6,6 +6,7 @@ import WhyScalify from "@/components/sections/WhyScalify";
 import Work from "@/components/sections/Work";
 import Portfolio from "@/components/sections/Portfolio";
 import Pricing from "@/components/sections/Pricing";
+import ContactForm from "@/components/sections/ContactForm";
 import FAQ from "@/components/sections/FAQ";
 import Footer from "@/components/sections/Footer";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Work />
       <Portfolio />
       <Pricing />
+      <ContactForm />
       <FAQ />
       <Footer />
     </main>
