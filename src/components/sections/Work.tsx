@@ -4,28 +4,37 @@ import Link from "next/link";
 
 const projects = [
   {
-    title: "Mayank.dev",
-    desc: "Personal portfolio — Creative developer showcase with dark theme and immersive animations.",
+    title: "Mayank — Web Developer",
+    desc: "Personal portfolio — Bold typographic design with code-backdrop hero and AI-forward developer brand.",
     tag: "Portfolio",
     tagColor: "#7C3AED",
     link: "https://mayank-sharma2008.github.io/MyPortfolio/",
-    gradient: "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)",
-    textColor: "white",
+    gradient: "linear-gradient(135deg, #d6d0c4 0%, #c8c0b0 50%, #bab0a0 100%)",
+    textColor: "#1a1a1a",
     preview: (
-      <div className="bg-black rounded-xl p-4 w-full h-full flex flex-col justify-between min-h-[160px]">
-        <div className="flex items-center gap-2 mb-3">
-          <div className="w-5 h-5 rounded bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center text-[8px] font-bold text-white">M</div>
-          <span className="text-white text-[10px] font-bold">mayank.dev</span>
-          <div className="ml-auto flex gap-3 text-[8px] text-gray-500">ABOUT WORK STACK</div>
+      <div className="rounded-xl overflow-hidden w-full min-h-[160px] flex flex-col relative" style={{ background: "linear-gradient(135deg, #ccc5b5 0%, #bdb0a0 100%)" }}>
+       {/* Simulated code background text */}
+        <div className="absolute inset-0 opacity-30 overflow-hidden p-2">
+          <p className="text-[6px] text-stone-600 font-mono leading-relaxed break-all">
+            {"<?php bloginfo('charset'); ?> content='width=device-width' $menu_pos $theme_options src_attr $menu_position fruitrain $body_class"}
+          </p>
         </div>
-        <div>
-          <div className="text-cyan-400 text-[18px] font-black leading-tight">Creative</div>
-          <div className="text-cyan-300 text-[18px] font-black leading-tight">Developer ✦</div>
+        {/* Navbar */}
+        <div className="relative z-10 flex justify-between items-center px-3 py-2">
+          <span className="text-stone-800 text-[9px] font-bold">Mayank</span>
+          <div className="flex gap-2 text-[7px] text-stone-600 font-medium">
+            <span>ABOUT</span><span>SKILLS</span><span>PROJECTS</span>
+          </div>
         </div>
-        <div className="flex gap-4 mt-2">
-          {[["15+","PROJECTS"],["3+","YRS EXP"],["500+","COMMITS"]].map(([v,l])=>(
-            <div key={l}><p className="text-white text-[10px] font-bold">{v}</p><p className="text-gray-500 text-[7px]">{l}</p></div>
-          ))}
+        {/* Hero text */}
+        <div className="relative z-10 px-3 pt-1 pb-3">
+          <p className="text-stone-900 font-black leading-[1.0]" style={{ fontSize: "17px" }}>I Build Websites.</p>
+          <p className="font-black leading-[1.0]" style={{ fontSize: "17px", color: "#8b7355" }}>AI Does the Heavy Lifting.</p>
+          <p className="text-stone-600 text-[7px] mt-2 leading-relaxed max-w-[180px]">I help businesses and founders get clean, functional websites built fast.</p>
+          <div className="flex gap-2 mt-2">
+            <div className="bg-stone-900 text-white text-[6px] font-bold px-2.5 py-1.5 rounded">START A PROJECT ↗</div>
+            <div className="border border-stone-400 text-stone-600 text-[6px] font-bold px-2.5 py-1.5 rounded">VIEW WORK</div>
+          </div>
         </div>
       </div>
     ),
@@ -136,7 +145,7 @@ const projects = [
     ),
   },
   {
-    title: "Mayank Sharma",
+    title: "Mayank.dev",
     desc: "Alternative portfolio — dark creative developer showcase with motion and stack highlights.",
     tag: "Portfolio",
     tagColor: "#7C3AED",
