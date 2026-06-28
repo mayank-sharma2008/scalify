@@ -22,7 +22,6 @@ const plans = [
       "1 revision round",
     ],
     notIncluded: ["CMS / Admin panel", "Custom animations", "E-commerce", "Priority support"],
-    cta: "Get started →",
     popular: false,
   },
   {
@@ -45,7 +44,6 @@ const plans = [
       "2 revision rounds",
     ],
     notIncluded: ["E-commerce", "Custom integrations"],
-    cta: "Most popular →",
     popular: true,
   },
   {
@@ -71,7 +69,6 @@ const plans = [
       "Unlimited revisions",
     ],
     notIncluded: [],
-    cta: "Let's build →",
     popular: false,
   },
 ];
@@ -137,7 +134,7 @@ export default function Pricing() {
         </motion.div>
 
         {/* 3 Plan Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -154,7 +151,7 @@ export default function Pricing() {
             >
               {/* Popular badge */}
               {plan.popular && (
-                <div className="absolute top-0 left-0 right-0 bg-[#7C3AED] text-white text-[10px] font-bold uppercase tracking-widest text-center py-2">
+                <div className="absolute top-0 left-0 right-0 bg-[#7C3AED] text-white text-[10px] font-bold uppercase tracking-widest text-center py-2 z-10">
                   ✦ Most Popular
                 </div>
               )}
@@ -193,7 +190,6 @@ export default function Pricing() {
 
                 {/* CTA buttons */}
                 <div className="flex flex-col gap-2.5 mt-auto pt-4">
-                  {/* Pay online */}
                   <motion.button
                     onClick={() => handlePayment(plan)}
                     disabled={loading === plan.name}
@@ -206,13 +202,15 @@ export default function Pricing() {
                     }}
                   >
                     {loading === plan.name ? (
-                      <><span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span> Processing...</>
+                      <>
+                        <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                        Processing...
+                      </>
                     ) : (
                       <>Pay now — {plan.price}</>
                     )}
                   </motion.button>
 
-                  {/* Send brief instead */}
                   <Link
                     href="#contact"
                     className="w-full py-3 rounded-2xl text-sm font-medium border border-gray-200 text-gray-500 hover:border-[#7C3AED] hover:text-[#7C3AED] transition-all duration-200 text-center"
@@ -225,25 +223,78 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Bottom guarantee strip */}
+        {/* Guarantee strip — dark */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-[#fafafa] border border-gray-100 rounded-3xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
+          className="relative rounded-3xl overflow-hidden mb-8"
+          style={{ background: "linear-gradient(135deg, #0A0A0A 0%, #1a1040 50%, #0A0A0A 100%)" }}
         >
-          {[
-            { icon: "⚡", title: "7-day delivery", desc: "Or we work until it's done" },
-            { icon: "🔒", title: "Fixed price", desc: "No hidden fees ever" },
-            { icon: "♾️", title: "You own 100%", desc: "All code handed over" },
-            { icon: "🔄", title: "Free revisions", desc: "Until you're happy" },
-          ].map((g) => (
-            <div key={g.title} className="flex flex-col items-center gap-2">
-              <span className="text-2xl">{g.icon}</span>
-              <p className="font-display font-bold text-[14px] text-[#0A0A0A]">{g.title}</p>
-              <p className="text-gray-400 text-xs">{g.desc}</p>
-            </div>
-          ))}
+          {/* Purple glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-[#7C3AED]/20 blur-3xl rounded-full pointer-events-none"></div>
+
+          <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10">
+            {[
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                ),
+                title: "7-day delivery",
+                desc: "Or we work until it's done",
+                bg: "from-yellow-400/10 to-orange-400/5",
+              },
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="5" y="11" width="14" height="10" rx="2"/>
+                    <path d="M8 11V7a4 4 0 018 0v4"/>
+                  </svg>
+                ),
+                title: "Fixed price",
+                desc: "No hidden fees ever",
+                bg: "from-purple-400/10 to-indigo-400/5",
+              },
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                ),
+                title: "You own 100%",
+                desc: "All code handed over",
+                bg: "from-green-400/10 to-emerald-400/5",
+              },
+              {
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M23 4v6h-6"/>
+                    <path d="M1 20v-6h6"/>
+                    <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+                  </svg>
+                ),
+                title: "Free revisions",
+                desc: "Until you're happy",
+                bg: "from-blue-400/10 to-cyan-400/5",
+              },
+            ].map((g) => (
+              <motion.div
+                key={g.title}
+                whileHover={{ backgroundColor: "rgba(124,58,237,0.08)" }}
+                className="flex flex-col items-center gap-3 p-8 text-center transition-colors duration-200 cursor-default"
+              >
+                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${g.bg} border border-white/10 flex items-center justify-center`}>
+                  {g.icon}
+                </div>
+                <div>
+                  <p className="font-display font-bold text-[15px] text-white mb-1">{g.title}</p>
+                  <p className="text-white/40 text-xs leading-relaxed">{g.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Not sure CTA */}
@@ -251,9 +302,13 @@ export default function Pricing() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-gray-400 text-sm mt-8"
+          className="text-center text-gray-400 text-sm"
         >
-          Not sure which plan? <Link href="#contact" className="text-[#7C3AED] font-semibold hover:underline">Send us a brief</Link> and we&apos;ll recommend one.
+          Not sure which plan?{" "}
+          <Link href="#contact" className="text-[#7C3AED] font-semibold hover:underline">
+            Send us a brief
+          </Link>{" "}
+          and we&apos;ll recommend one.
         </motion.p>
 
       </div>
