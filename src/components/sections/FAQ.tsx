@@ -69,7 +69,7 @@ export default function FAQ() {
                 <h3 className="text-white font-display font-bold text-2xl leading-tight">Book a 15-min<br />intro call</h3>
                 <p className="text-white/70 text-sm mt-2">Let&apos;s chat about your project.<br />No pressure. Just clarity.</p>
               </div>
-              <Link href="https://cal.com" target="_blank"
+              <Link href="/book"
                 className="bg-white text-[#0A0A0A] font-semibold text-sm px-6 py-3.5 rounded-full text-center hover:scale-[1.02] transition-transform block">
                 Book a call →
               </Link>
