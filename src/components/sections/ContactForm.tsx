@@ -7,20 +7,26 @@ export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleSubmit = async () => {
-    if (!form.name || !form.email || !form.message) return;
-    setStatus("loading");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (res.ok) setStatus("success");
-      else setStatus("error");
-    } catch {
-      setStatus("error");
-    }
-  };
+      if (!form.name || !form.email || !form.message) return;
+      setStatus("loading");
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        });
+        const data = await res.json();
+        console.log("API response:", data);
+        if (res.ok && data.success) setStatus("success");
+        else {
+          console.error("API error:", data.error);
+          setStatus("error");
+        }
+      } catch (err) {
+        console.error("Fetch error:", err);
+        setStatus("error");
+      }
+    };
 
   if (status === "success") {
     return (
